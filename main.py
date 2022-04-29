@@ -1,6 +1,7 @@
 import pygame
 import sys
 import random
+import snake
 
 
 WIDTH, HEIGHT = 480, 480
@@ -62,15 +63,15 @@ class Snake():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_UP:
-                    self.turn(UP)
-                elif event.key == pygame.K_DOWN:
-                    self.turn(DOWN)
-                elif event.key == pygame.K_LEFT:
-                    self.turn(LEFT)
-                elif event.key == pygame.K_RIGHT:
-                    self.turn(RIGHT)
+        move = snake.movement()
+        if move == "UP":
+            self.turn(UP)
+        elif move == "DOWN":
+            self.turn(DOWN)
+        elif move == "LEFT":
+            self.turn(LEFT)
+        elif move == "RIGHT":
+            self.turn(RIGHT)
 
 
 class Food():
